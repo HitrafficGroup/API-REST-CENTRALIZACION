@@ -220,8 +220,8 @@ def checkParamIsClonable(element):
 def hitrafficClonarConfigControlador(ipSrc,macSrc,listaMacIPDestino):
     """ Realiza un cambio de IP al controlador actualmente seleccionado """
 
-    observacion="cloned from ",ipSrc," ",macSrc
-    observacionLecturaFromBD="leyendo parametro desde ",macSrc," para clonarlo"
+    # observacion="cloned from ",ipSrc," ",macSrc
+    # observacionLecturaFromBD="leyendo parametro desde ",macSrc," para clonarlo"
 
     #listaMacIPDestino: [ {"ip":valor, "mac":valor},{...},{...} ]
     #--------------------------------------------------------------
@@ -249,22 +249,22 @@ def hitrafficClonarConfigControlador(ipSrc,macSrc,listaMacIPDestino):
     #--------------------------------------------------------------
     #clonar fases
     #--------------------------------------------------------------
-    if (checkParamIsClonable("fases")) :
-        try:
-            print("----------------- clonando fases -------------------")
-            jsonValueFromBD=cacheBd.leerParametro(mac=macSrc,parametroId='fases',observacion=observacionLecturaFromBD)
-            ObjFases = json.loads(jsonValueFromBD)
-            print(ObjFases)
-            for element in listaMacIPDestino:
-                #se manda a leer para que se valide si no existe en la bd se cree 
-                print(element)
-                apiRead.hitrafficGetFasesControlador(element["ip"],element["mac"],observacion)
-                hitrafficSetFasesControlador(element["ip"],ObjFases[macSrc]["fase1"],ObjFases[macSrc]["fase2"],ObjFases[macSrc]["fase3"],ObjFases[macSrc]["fase4"],ObjFases[macSrc]["fase5"],ObjFases[macSrc]["fase6"],ObjFases[macSrc]["fase7"],ObjFases[macSrc]["fase8"],ObjFases[macSrc]["fase9"],ObjFases[macSrc]["fase10"],ObjFases[macSrc]["fase11"],ObjFases[macSrc]["fase12"],ObjFases[macSrc]["fase13"],ObjFases[macSrc]["fase14"],ObjFases[macSrc]["fase15"],ObjFases[macSrc]["fase16"],element["mac"],observacion)
-            #logica para mandar al controlador el parametro
+    # if (checkParamIsClonable("fases")) :
+    #     try:
+    #         print("----------------- clonando fases -------------------")
+
+    #         ObjFases = json.loads(jsonValueFromBD)
+    #         print(ObjFases)
+    #         for element in listaMacIPDestino:
+    #             #se manda a leer para que se valide si no existe en la bd se cree 
+    #             print(element)
+    #             apiRead.hitrafficGetFasesControlador(element["ip"],element["mac"],observacion)
+    #             hitrafficSetFasesControlador(element["ip"],ObjFases[macSrc]["fase1"],ObjFases[macSrc]["fase2"],ObjFases[macSrc]["fase3"],ObjFases[macSrc]["fase4"],ObjFases[macSrc]["fase5"],ObjFases[macSrc]["fase6"],ObjFases[macSrc]["fase7"],ObjFases[macSrc]["fase8"],ObjFases[macSrc]["fase9"],ObjFases[macSrc]["fase10"],ObjFases[macSrc]["fase11"],ObjFases[macSrc]["fase12"],ObjFases[macSrc]["fase13"],ObjFases[macSrc]["fase14"],ObjFases[macSrc]["fase15"],ObjFases[macSrc]["fase16"],element["mac"],observacion)
+    #         #logica para mandar al controlador el parametro
 
 
-        except:
-            raise Exception('Error ejecutando clonacion de fases')
+    #     except:
+    #         raise Exception('Error ejecutando clonacion de fases')
 
 
     #--------------------------------------------------------------
