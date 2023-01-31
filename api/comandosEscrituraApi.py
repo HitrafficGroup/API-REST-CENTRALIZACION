@@ -113,27 +113,25 @@ def hitrafficSetHorariosControlador(ip,num_horario,hora1,minuto1,mod1,desfase1,h
 
     return context
 
-
-def hitrafficSetDiasEspecialesControlador(ip, mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana):
+def hitrafficSetDiasEspecialesControlador(ip, mac, mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana):
     """ Escribe la configuracion de los dias especiales en el controlador """
+
     try:
         output = run("""{} {} --escribir_dias_especiales {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}""".format(comandoBaseWrite,str(ip),mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana), capture_output=True, timeout=10).stdout
     except:
         raise Exception('Error ejecutando comando escribir dias especiales')
     
-    data = convertData.convertToDictDiasEspeciales(ip, mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, 
-    mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, 
-    mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13,
-     mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana)
+    
+    data = convertData.convertToDictDiasEspeciales(ip, mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana)
     
     context = {
         "data": data,
         "confirmacion" : "yes",
     }
 
- 
 
     return context
+
 
 def hitrafficSetConflictoVerdesControlador(ip,fila1,fila2,fila3,check1,check2,check3):
     """ Escribe la configuracion de los conflictos en verde en el controlador """
@@ -151,7 +149,7 @@ def hitrafficSetConflictoVerdesControlador(ip,fila1,fila2,fila3,check1,check2,ch
     }
     return context
 
-def hitrafficSetEntradasControlador(ip,mac,box1,fase1,tiempo1,box2,fase2,tiempo2,box3,fase3,tiempo3,box4,fase4,tiempo4,observacion='undefined'):
+def hitrafficSetEntradasControlador(ip,mac,box1,fase1,tiempo1,box2,fase2,tiempo2,box3,fase3,tiempo3,box4,fase4,tiempo4):
     """ Escribe la configuracion de las entradas en el controlador """
 
     try:

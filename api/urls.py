@@ -23,5 +23,10 @@ urlpatterns = [
     path('restSetPlanesControlador',restSetPlanesControlador.as_view()),
     path('restSetOtrosParamControlador',restSetOtrosParamControlador.as_view()),
     path('restSetHorariosControlador',restSetHorariosControlador.as_view()),
-    path('restSetDiasEspecialesControlador',restSetDiasEspecialesControlador.as_view()),    
-]
+    path('restSetDiasEspecialesControlador',restSetDiasEspecialesControlador.as_view()),
+    path('restSetEntradasControlador',restSetEntradasControlador.as_view()),
+    path('restSetRegistrosControlador',restSetRegistrosControlador.as_view()),
+    path('restClonarConfiguracionEnLote',restClonarConfiguracionEnLote.as_view()),
+    path('restSetBorrarErrorControlador',restSetBorrarErrorControlador.as_view()),
+    path('restSetCambioIpControlador',restSetCambioIpControlador.as_view()),
+]      

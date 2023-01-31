@@ -338,64 +338,151 @@ class  restSetHorariosControlador(APIView):
         return Response(result,status=status.HTTP_200_OK)
 
 
-# class  restSetDiasEspecialesControlador(APIView):
-#     def post(self, request, *args, **kwargs):
-#         if len(request.body) == 0 :
-#             raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-#         json_data = json.loads(request.body)
-#         print(json_data)
-#         ip = json_data["ip"]
-#         fines_semana = json_data["fines_semana"]
-#         mes1 = json_data["mes1"]
-#         dia1 = json_data["dia1"]
-#         mod1 = json_data["mod1"]
-#         mes2 = json_data["mes2"]
-#         dia2 = json_data["dia2"]
-#         mod2 = json_data["mod2"]
-#         mes3 = json_data["mes3"]
-#         dia3 = json_data["dia3"]
-#         mod3 = json_data["mod3"]
-#         mes4 = json_data["mes4"]
-#         dia4 = json_data["dia4"]
-#         mod4 = json_data["mod4"]
-#         mes5 = json_data["mes5"]
-#         dia5 = json_data["dia5"]
-#         mod5 = json_data["mod5"]
-#         mes6 = json_data["mes6"]
-#         dia6 = json_data["dia6"]
-#         mod6 = json_data["mod6"]
-#         mes7 = json_data["mes7"]
-#         dia7 = json_data["dia7"]
-#         mod7 = json_data["mod7"]
-#         mes8 = json_data["mes8"]
-#         dia8 = json_data["dia8"]
-#         mod8 = json_data["mod8"]
-#         mes9 = json_data["mes9"]
-#         dia9 = json_data["dia9"]
-#         mod9 = json_data["mod9"]
-#         mes10 = json_data["mes10"]
-#         dia10 = json_data["dia10"]
-#         mod10 = json_data["mod10"]
-#         mes11 = json_data["mes11"]
-#         dia11 = json_data["dia11"]
-#         mod11 = json_data["mod11"]
-#         mes12 = json_data["mes12"]
-#         dia12 = json_data["dia12"]
-#         mod12 = json_data["mod12"]
-#         mes13 = json_data["mes13"]
-#         dia13 = json_data["dia13"]
-#         mod13 = json_data["mod13"]
-#         mes14 = json_data["mes14"]
-#         dia14 = json_data["dia14"]
-#         mod14 = json_data["mod14"]
-#         mes15 = json_data["mes15"]
-#         dia15 = json_data["dia15"]
-#         mod15 = json_data["mod15"]
-#         mes16 = json_data["mes16"]
-#         dia16 = json_data["dia16"]
-#         mod16 = json_data["mod16"]
-#         result = hitrafficSetDiasEspecialesControlador(ip,mes1,dia1,mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana)
-#         return Response(result,status=status.HTTP_200_OK)
+class  restSetDiasEspecialesControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        print(json_data)
+        ip = json_data["ip"]
+        fines_semana = json_data["fines_semana"]
+        mac = json_data["mac"]
+        mes1 = json_data["mes1"]
+        dia1 = json_data["dia1"]
+        mod1 = json_data["mod1"]
+        mes2 = json_data["mes2"]
+        dia2 = json_data["dia2"]
+        mod2 = json_data["mod2"]
+        mes3 = json_data["mes3"]
+        dia3 = json_data["dia3"]
+        mod3 = json_data["mod3"]
+        mes4 = json_data["mes4"]
+        dia4 = json_data["dia4"]
+        mod4 = json_data["mod4"]
+        mes5 = json_data["mes5"]
+        dia5 = json_data["dia5"]
+        mod5 = json_data["mod5"]
+        mes6 = json_data["mes6"]
+        dia6 = json_data["dia6"]
+        mod6 = json_data["mod6"]
+        mes7 = json_data["mes7"]
+        dia7 = json_data["dia7"]
+        mod7 = json_data["mod7"]
+        mes8 = json_data["mes8"]
+        dia8 = json_data["dia8"]
+        mod8 = json_data["mod8"]
+        mes9 = json_data["mes9"]
+        dia9 = json_data["dia9"]
+        mod9 = json_data["mod9"]
+        mes10 = json_data["mes10"]
+        dia10 = json_data["dia10"]
+        mod10 = json_data["mod10"]
+        mes11 = json_data["mes11"]
+        dia11 = json_data["dia11"]
+        mod11 = json_data["mod11"]
+        mes12 = json_data["mes12"]
+        dia12 = json_data["dia12"]
+        mod12 = json_data["mod12"]
+        mes13 = json_data["mes13"]
+        dia13 = json_data["dia13"]
+        mod13 = json_data["mod13"]
+        mes14 = json_data["mes14"]
+        dia14 = json_data["dia14"]
+        mod14 = json_data["mod14"]
+        mes15 = json_data["mes15"]
+        dia15 = json_data["dia15"]
+        mod15 = json_data["mod15"]
+        mes16 = json_data["mes16"]
+        dia16 = json_data["dia16"]
+        mod16 = json_data["mod16"]
+        result = hitrafficSetDiasEspecialesControlador(ip, mac, mes1, dia1, mod1, mes2, dia2, mod2, mes3, dia3, mod3, mes4, dia4, mod4, mes5, dia5, mod5, mes6, dia6, mod6, mes7, dia7, mod7, mes8, dia8, mod8, mes9, dia9, mod9, mes10, dia10, mod10, mes11, dia11, mod11, mes12, dia12, mod12, mes13, dia13, mod13, mes14, dia14, mod14, mes15, dia15, mod15, mes16, dia16, mod16, fines_semana)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restSetEntradasControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        ip = json_data["ip"]
+        mac = json_data["mac"]
+        box1 = json_data["box1"]
+        fase1 = json_data["fase1"]
+        tiempo1 = json_data["tiempo1"]
+        box2 = json_data["box2"]
+        fase2 = json_data["fase2"]
+        tiempo2 = json_data["tiempo2"]
+        box3 = json_data["box3"]
+        fase3 = json_data["fase3"]
+        tiempo3 = json_data["tiempo3"]
+        box4 = json_data["box4"]
+        fase4 = json_data["fase4"]
+        tiempo4 = json_data["tiempo4"]
+        result = hitrafficSetEntradasControlador(ip,mac,box1,fase1,tiempo1,box2,fase2,tiempo2,box3,fase3,tiempo3,box4,fase4,tiempo4)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restSetEntradasControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        ip = json_data["ip"]
+        mac = json_data["mac"]
+        box1 = json_data["box1"]
+        fase1 = json_data["fase1"]
+        tiempo1 = json_data["tiempo1"]
+        box2 = json_data["box2"]
+        fase2 = json_data["fase2"]
+        tiempo2 = json_data["tiempo2"]
+        box3 = json_data["box3"]
+        fase3 = json_data["fase3"]
+        tiempo3 = json_data["tiempo3"]
+        box4 = json_data["box4"]
+        fase4 = json_data["fase4"]
+        tiempo4 = json_data["tiempo4"]
+        result = hitrafficSetEntradasControlador(ip,mac,box1,fase1,tiempo1,box2,fase2,tiempo2,box3,fase3,tiempo3,box4,fase4,tiempo4)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restSetRegistrosControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        ip = json_data["ip"]
+        result = hitrafficSetRegistrosControlador(ip)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restClonarConfiguracionEnLote(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos')
+        
+        json_data = json.loads(request.body)
+        ipControladorSrc = json_data["ip"]
+        macControladorSrc = json_data["mac"]
+        listaMacIpTarget = json_data["lista_controladores"]
+        result = hitrafficClonarConfigControlador(ipControladorSrc, macControladorSrc, listaMacIpTarget)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restSetBorrarErrorControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        ip = json_data["ip"]
+        result =  hitrafficSetBorrarErrorControlador(ip)
+        return Response(result,status=status.HTTP_200_OK)
+
+class  restSetCambioIpControlador(APIView):
+    def post(self, request, *args, **kwargs):
+        if len(request.body) == 0 :
+            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
+        json_data = json.loads(request.body)
+        ip = json_data["ip"]
+        nueva_ip = json_data["nueva_ip"]
+        mac = json_data["mac"]
+        result =  hitrafficSetCambiarIpControlador(ip, nueva_ip, mac)
+        return Response(result,status=status.HTTP_200_OK)
+
 
 
 data_test= {"peticion":"se envia correctamente"}
