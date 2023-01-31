@@ -21,119 +21,82 @@ class ListarIpsControlador(APIView):
 
 class restGetTimeControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            print("esta mal pasa la ip")
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
-        mac= request.GET.get('mac')
+        mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetTimeControlador(ip,mac)
     
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetGruposControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetGruposControlador(ip,mac)
-        print(result)
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetFasesControlador(APIView):
     def get(self, request, *args, **kwargs):
-        print(request)
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-            
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetFasesControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 
 class restGetPlanesControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result =  hitrafficGetPlanesControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 
 class restGetOtrosParamControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetOtrosParamControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetHorariosControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result =  hitrafficGetHorariosControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetDiasEspecialesControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetDiasEspecialesControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetConflictoVerdesControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetConflictoVerdesControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 class restGetEntradasControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetEntradasControlador(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
 class  restGetRegistrosControlador(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
-        mac= request.GET.get('mac')
-        pagina = json_data["pagina"]
+        mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
+        pagina=request.GET.get('pg')
         result =  hitrafficGetRegistrosControlador(ip,mac, pagina)
         return Response(result,status=status.HTTP_200_OK)
 
 class  restGetVersionFirmware(APIView):
     def get(self, request, *args, **kwargs):
-        if len(request.body) == 0 :
-            raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
-        json_data = json.loads(request.body)
-        ip = json_data["ip"]
         mac=request.GET.get('mac')
+        ip=request.GET.get('ip')
         result = hitrafficGetVersionFirmware(ip,mac)
         return Response(result,status=status.HTTP_200_OK)
 
@@ -164,7 +127,7 @@ class restSetGruposControlador(APIView):
         g2 = json_data["g2"]
         g3 = json_data["g3"]
         g4 = json_data["g4"]
-
+        
     
         result = hitrafficSetGruposControlador(ip,g1,g2,g3,g4,json_data)
         return Response(result,status=status.HTTP_200_OK)
