@@ -15,6 +15,7 @@ class ListarIpsControlador(APIView):
     ''' Funcion encargada de listar todos mis controladores que esten en red'''
     def get(self, request, *args, **kwargs):
         result = hitrafficListarIps()
+        print(result)
         return Response(result,status=status.HTTP_200_OK)
 
 
