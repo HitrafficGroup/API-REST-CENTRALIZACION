@@ -154,24 +154,7 @@ class restSetFasesControlador(APIView):
             raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
         json_data = json.loads(request.body)
         ip = json_data["ip"]
-        f1 = json_data["fase1"]
-        f2 = json_data["fase2"]
-        f3 = json_data["fase3"]
-        f4 = json_data["fase4"]
-        f5 = json_data["fase5"]
-        f6 = json_data["fase6"]
-        f7 = json_data["fase7"]
-        f8 = json_data["fase8"]
-        f9 = json_data["fase9"]
-        f10 = json_data["fase10"]
-        f11 = json_data["fase11"]
-        f12 = json_data["fase12"]
-        f13 = json_data["fase13"]
-        f14 = json_data["fase14"]
-        f15 = json_data["fase15"]
-        f16 = json_data["fase16"]
-
-        result = hitrafficSetFasesControlador(ip,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16)
+        result = hitrafficSetFasesControlador(ip,json_data)
         return Response(result,status=status.HTTP_200_OK)
 
 class  restSetPlanesControlador(APIView):
@@ -180,32 +163,9 @@ class  restSetPlanesControlador(APIView):
             raise Exception('Datos de entrada invalidos: se requiere pasar la ip')
         json_data = json.loads(request.body)
         ip = json_data["ip"]
-        num_plan = json_data["num_plan"]
-        fase1 =  json_data["data0"]
-        tiempo1 = json_data["data1"]
-        fase2 = json_data["data2"]
-        tiempo2 = json_data["data3"]
-        fase3 = json_data["data4"]
-        tiempo3 = json_data["data5"]
-        fase4 = json_data["data6"]
-        tiempo4 = json_data["data7"]
-        fase5 = json_data["data8"]
-        tiempo5 = json_data["data9"]
-        fase6 = json_data["data10"]
-        tiempo6 =  json_data["data11"]
-        fase7 = json_data["data12"]
-        tiempo7 = json_data["data13"]
-        fase8 = json_data["data14"]
-        tiempo8 = json_data["data15"]
-        fase9 = json_data["data16"]
-        tiempo9 = json_data["data17"]
-        fase10 = json_data["data18"]
-        tiempo10 = json_data["data19"]
-        fase11 = json_data["data20"]
-        tiempo11 = json_data["data21"]
-        fase12  = json_data["data22"]
-        tiempo12 = json_data["data23"]
-        result = hitrafficSetPlanesControlador(ip,num_plan,fase1,tiempo1,fase2,tiempo2,fase3,tiempo3,fase4,tiempo4,fase5,tiempo5,fase6,tiempo6,fase7,tiempo7,fase8,tiempo8,fase9,tiempo9,fase10,tiempo10,fase11,tiempo11,fase12,tiempo12)
+   
+      
+        result = hitrafficSetPlanesControlador(ip,json_data)
         
         return Response(result,status=status.HTTP_200_OK)
 
@@ -419,12 +379,14 @@ class  restClonarConfiguracionEnLote(APIView):
     def post(self, request, *args, **kwargs):
         if len(request.body) == 0 :
             raise Exception('Datos de entrada invalidos')
-        
         json_data = json.loads(request.body)
         ipControladorSrc = json_data["ip"]
         macControladorSrc = json_data["mac"]
         listaMacIpTarget = json_data["lista_controladores"]
-        result = hitrafficClonarConfigControlador(ipControladorSrc, macControladorSrc, listaMacIpTarget)
+        horarios =  json_data["horarios"]
+        fases = json_data["fases"]
+        planes = json_data["planes"]
+        result = hitrafficClonarConfigControlador(ipControladorSrc, macControladorSrc, listaMacIpTarget,horarios,fases,planes)
         return Response(result,status=status.HTTP_200_OK)
 
 class  restSetBorrarErrorControlador(APIView):
