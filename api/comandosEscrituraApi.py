@@ -92,17 +92,15 @@ def hitrafficSetOtrosParamControlador(ip,time_destello_on,time_red_on,time_deste
     return context
 
 
-def hitrafficSetHorariosControlador(ip,num_horario,hora1,minuto1,mod1,desfase1,hora2,minuto2,mod2,desfase2,hora3,minuto3,mod3,desfase3,hora4,minuto4,mod4,desfase4,hora5,minuto5,mod5,desfase5,hora6,minuto6,mod6,desfase6,hora7,minuto7,mod7,desfase7,hora8,minuto8,mod8,desfase8,hora9,minuto9,mod9,desfase9,hora10,minuto10,mod10,desfase10,hora11,minuto11,mod11,desfase11,hora12,minuto12,mod12,desfase12,hora13,minuto13,mod13,desfase13,hora14,minuto14,mod14,desfase14,hora15,minuto15,mod15,desfase15,hora16,minuto16,mod16,desfase16):
+def hitrafficSetHorariosControlador(ip,_data):
     """ Escribe la configuracion de los horarios en el controlador """
     
     try:
-        output = run("""{} {} --escribir_horario {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}""".format(comandoBaseWrite,str(ip),num_horario,hora1,minuto1,mod1,desfase1,hora2,minuto2,mod2,desfase2,hora3,minuto3,mod3,desfase3,hora4,minuto4,mod4,desfase4,hora5,minuto5,mod5,desfase5,hora6,minuto6,mod6,desfase6,hora7,minuto7,mod7,desfase7,hora8,minuto8,mod8,desfase8,hora9,minuto9,mod9,desfase9,hora10,minuto10,mod10,desfase10,hora11,minuto11,mod11,desfase11,hora12,minuto12,mod12,desfase12,hora13,minuto13,mod13,desfase13,hora14,minuto14,mod14,desfase14,hora15,minuto15,mod15,desfase15,hora16,minuto16,mod16,desfase16), capture_output=True, timeout=10).stdout
+        output = run("""{} {} --escribir_horario {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}""".format(comandoBaseWrite,str(ip),_data['num_horario'],_data['hora1'],_data['minuto1'],_data['mod_plan1'],_data['desfase1'],_data['hora2'],_data['minuto2'],_data['mod_plan2'],_data['desfase2'],_data['hora3'],_data['minuto3'],_data['mod_plan3'],_data['desfase3'],_data['hora4'],['minuto4'],_data['mod_plan4'],_data['desfase4'],_data['hora5'],_data['minuto5'],_data['mod_plan5'],_data['desfase5'],_data['hora6'],_data['minuto6'],_data['mod_plan6'],_data['desfase6'],_data['hora7'],_data['minuto7'],_data['mod_plan7'],_data['desfase7'],_data['hora8'],_data['minuto8'],_data['mod_plan8'],_data['desfase8'],_data['hora9'],_data['minuto9'],_data['mod_plan9'],_data['desfase9'],_data['hora10'],_data['minuto10'],_data['mod_plan10'],_data['desfase10'],_data['hora11'],_data['minuto11'],_data['mod_plan11'],_data['desfase11'],_data['hora12'],_data['minuto12'],_data['mod_plan12'],_data['desfase12'],_data['hora13'],_data['minuto13'],_data['mod_plan13'],_data['desfase13'],_data['hora14'],_data['minuto14'],_data['mod_plan14'],_data['desfase14'],_data['hora15'],_data['minuto15'],_data['mod_plan15'],_data['desfase15'],_data['hora16'],_data['minuto16'],_data['mod_plan16'],_data['desfase16']), capture_output=True, timeout=10).stdout
     except:
         raise Exception('Error ejecutando comando escribir horarios')
 
-
-    #cacheBd.procesarEscrituraHorario(ip,mac,json_data)
-    data = convertData.convertToDictHorarios(ip,num_horario,hora1,minuto1,mod1,desfase1,hora2,minuto2,mod2,desfase2,hora3,minuto3,mod3,desfase3,hora4,minuto4,mod4,desfase4,hora5,minuto5,mod5,desfase5,hora6,minuto6,mod6,desfase6,hora7,minuto7,mod7,desfase7,hora8,minuto8,mod8,desfase8,hora9,minuto9,mod9,desfase9,hora10,minuto10,mod10,desfase10,hora11,minuto11,mod11,desfase11,hora12,minuto12,mod12,desfase12,hora13,minuto13,mod13,desfase13,hora14,minuto14,mod14,desfase14,hora15,minuto15,mod15,desfase15,hora16,minuto16,mod16,desfase16)
+    data = convertData.convertToDictHorarios(ip,_data['num_horario'],_data['hora1'],_data['minuto1'],_data['mod_plan1'],_data['desfase1'],_data['hora2'],_data['minuto2'],_data['mod_plan2'],_data['desfase2'],_data['hora3'],_data['minuto3'],_data['mod_plan3'],_data['desfase3'],_data['hora4'],['minuto4'],_data['mod_plan4'],_data['desfase4'],_data['hora5'],_data['minuto5'],_data['mod_plan5'],_data['desfase5'],_data['hora6'],_data['minuto6'],_data['mod_plan6'],_data['desfase6'],_data['hora7'],_data['minuto7'],_data['mod_plan7'],_data['desfase7'],_data['hora8'],_data['minuto8'],_data['mod_plan8'],_data['desfase8'],_data['hora9'],_data['minuto9'],_data['mod_plan9'],_data['desfase9'],_data['hora10'],_data['minuto10'],_data['mod_plan10'],_data['desfase10'],_data['hora11'],_data['minuto11'],_data['mod_plan11'],_data['desfase11'],_data['hora12'],_data['minuto12'],_data['mod_plan12'],_data['desfase12'],_data['hora13'],_data['minuto13'],_data['mod_plan13'],_data['desfase13'],_data['hora14'],_data['minuto14'],_data['mod_plan14'],_data['desfase14'],_data['hora15'],_data['minuto15'],_data['mod_plan15'],_data['desfase15'],_data['hora16'],_data['minuto16'],_data['mod_plan16'],_data['desfase16'])
     context = {
         "data": data,
         "confirmacion" : "yes",
@@ -218,13 +216,35 @@ def checkParamIsClonable(element):
 
 def hitrafficClonarConfigControlador(ipSrc,macSrc,listaMacIPDestino,planSrc,horarioSrc,faseSrc):
     """ Realiza la clonacion de planes horarios """
-
+    ##print(planSrc)
+    # for x in planSrc:
+    #     print(x)
+    #     print('\n')
     for i in listaMacIPDestino:
         ip_target = i['ip']
         print(ip_target)
-        print(faseSrc)
-        #primero se procede a grabar las fases
-        #hitrafficSetFasesControlador(ip_target) 
+        # operacion de grabado de fases
+
+        for key,value in horarioSrc.items():
+            print(key)
+            if key == 'dia_ordinario':
+                value['num_horario'] = "0"
+                value['ip'] = ip_target
+            elif key =='dia_festivo':
+                value['num_horario'] = "2"
+                value['ip'] = ip_target
+            else:
+                value['num_horario'] = "1"
+                value['ip'] = ip_target
+            print(value)
+            print('\n')
+            hitrafficSetHorariosControlador(ip_target,value);
+        for x in planSrc:
+            x['ip'] = ip_target
+            if x['clonable']:
+                print(x)
+                print('\n')
+                hitrafficSetPlanesControlador(ip_target,x)
 
     
 

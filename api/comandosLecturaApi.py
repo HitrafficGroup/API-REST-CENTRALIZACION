@@ -83,7 +83,7 @@ def hitrafficGetPlanesControlador(ip,mac):
 
     """ Obtiene la configuracion de todos los 16 planes del controlador, independientemente del valor del selector """
     try:
-        output = run(comandoBaseRead+str(ip)+" --leer_planes", capture_output=True, timeout=120).stdout
+        output = run(comandoBaseRead+str(ip)+" --leer_planes", capture_output=True, timeout=140).stdout
     except:
         raise Exception('Error ejecutando comando leer planes')
 
