@@ -182,7 +182,7 @@ def hitrafficSetBorrarErrorControlador(ip,observacion='undefined'):
     """ Elimina el error sucitado en el controlador, cumple la funcion de reset en caso de fallo presentado en el controlador """
 
     try:
-        output = run("""{} {} --eliminar_error""".format(comandoBaseWrite,str(ip)), capture_output=True, timeout=10).stdout
+        run("""{} {} --eliminar_error""".format(comandoBaseWrite,str(ip)), capture_output=True, timeout=10).stdout
     except:
         raise Exception('Error ejecutando comando eliminar error')
     
@@ -193,11 +193,12 @@ def hitrafficSetBorrarErrorControlador(ip,observacion='undefined'):
     return context
 
 
-def hitrafficSetCambiarIpControlador(ip, nueva_ip,mac,observacion='undefined'):
+def hitrafficSetCambiarIpControlador(ip, nueva_ip,mac):
     """ Realiza un cambio de IP al controlador actualmente seleccionado """
 
     try:
-        output = run("""{} {} --cambiar_ip {} {}""".format(comandoBaseWrite,str(ip), str(nueva_ip), str(mac)), capture_output=True, timeout=20).stdout
+        run("""{} {} --cambiar_ip {} {}""".format(comandoBaseWrite,str(ip), str(nueva_ip), str(mac)), capture_output=True, timeout=20).stdout
+     
     except:
         raise Exception('Error ejecutando comando cambiar ip')
     
@@ -216,15 +217,11 @@ def checkParamIsClonable(element):
 
 def hitrafficClonarConfigControlador(ipSrc,macSrc,listaMacIPDestino,planSrc,horarioSrc,faseSrc):
     """ Realiza la clonacion de planes horarios """
-    ##print(planSrc)
-    # for x in planSrc:
-    #     print(x)
-    #     print('\n')
     for i in listaMacIPDestino:
         ip_target = i['ip']
         print(ip_target)
         # operacion de grabado de fases
-
+        hitrafficSetFasesControlador(ip_target,faseSrc)
         for key,value in horarioSrc.items():
             print(key)
             if key == 'dia_ordinario':
@@ -245,8 +242,6 @@ def hitrafficClonarConfigControlador(ipSrc,macSrc,listaMacIPDestino,planSrc,hora
                 print(x)
                 print('\n')
                 hitrafficSetPlanesControlador(ip_target,x)
-
-    
 
     context = {
         "confirmacion" : "yes",
